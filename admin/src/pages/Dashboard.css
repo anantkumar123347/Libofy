@@ -1,0 +1,13 @@
+.mdiv
+{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+}
+.sidebar{
+    height: 100%;
+    width: 20%;
+    background-color: rgb(53, 53, 53);
+    align-items: center;
+    justify-content: center;
+}
