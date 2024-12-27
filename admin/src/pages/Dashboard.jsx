@@ -7,13 +7,18 @@ import { Outlet, useNavigate } from "react-router-dom";
 function Dashboard() {
   const navigate = useNavigate();
 
+  const handleLogout = () => {
+    localStorage.removeItem('authToken'); 
+    navigate('/'); 
+  };
+
   return (
     <div className="mdiv" style={{ display: "flex" }}>
       {/* Sidebar */}
       <div className="sidebar">
         <Sidetile icon={<FaPlus />} label="Add a Book" onClick={() => navigate("addbook")} />
         <Sidetile icon={<FaBook />} label="All Books" onClick={() => navigate("allbooks")} />
-        <Sidetile icon={<FaSignOutAlt />} label="Logout" onClick={() => navigate("/")} />
+        <Sidetile icon={<FaSignOutAlt />} label="Logout" onClick={handleLogout} />
       </div>
 
       {/* Main Content */}

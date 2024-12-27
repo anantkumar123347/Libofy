@@ -1,0 +1,47 @@
+.allbooks-container {
+    margin: 20px;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .books-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+  }
+  
+  .books-table th, .books-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  .books-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+  
+  .books-table img.book-image {
+    width: 80px;
+    height: 100px;
+    object-fit: cover;
+  }
+  
+  .delete-button {
+    padding: 8px 12px;
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .delete-button:hover {
+    background-color: darkred;
+  }
+  
