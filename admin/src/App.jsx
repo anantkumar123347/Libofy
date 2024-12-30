@@ -10,7 +10,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Login Route */}
+        {/* Login Route */} 
         <Route path="/" element={<LoginPage />} />
 
         {/* Protected Dashboard Route */}
