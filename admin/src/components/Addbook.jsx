@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Addbook.css'; 
+import './Addbook.css';
 
 function Addbook() {
   const [name, setName] = useState('');
@@ -7,6 +7,7 @@ function Addbook() {
   const [publishYear, setPublishYear] = useState('');
   const [genre, setGenre] = useState('');
   const [image, setImage] = useState(null);
+  const [price, setPrice] = useState('');
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
 
@@ -16,17 +17,19 @@ function Addbook() {
   const handlePublishYearChange = (e) => setPublishYear(e.target.value);
   const handleGenreChange = (e) => setGenre(e.target.value);
   const handleImageChange = (e) => setImage(e.target.files[0]);
+  const handlePriceChange = (e) => setPrice(e.target.value);
 
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     const formData = new FormData();
     formData.append('name', name);
     formData.append('author', author);
     formData.append('publishYear', publishYear);
     formData.append('genre', genre);
     formData.append('image', image);
+    formData.append('price', price); // Add the price to the form data
 
     try {
       const response = await fetch('http://localhost:5000/books/', {
@@ -46,6 +49,7 @@ function Addbook() {
       setPublishYear('');
       setGenre('');
       setImage(null);
+      setPrice(''); // Reset the price input
     } catch (error) {
       setError(error.message);
       setSuccess(false);
@@ -93,6 +97,16 @@ function Addbook() {
             value={genre} 
             onChange={handleGenreChange} 
             placeholder="Enter the book's genre"
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label>Price:</label>
+          <input 
+            type="number" 
+            value={price} 
+            onChange={handlePriceChange} 
+            placeholder="Enter the price of the book"
             required
           />
         </div>

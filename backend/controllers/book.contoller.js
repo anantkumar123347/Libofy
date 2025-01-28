@@ -42,7 +42,8 @@ const addBook=async (req,res)=>{
     const author=req.body.author
     const publishYear=req.body.publishYear
     const genre=req.body.genre
-    if (!name || !author || !publishYear || !genre || !req.file) {
+    const price=req.body.price
+    if (!name || !author || !publishYear || !genre || !req.file || !price) {
         console.log("Send all the fields")
         return res.status(400).json({ message: 'All fields are required' });
       }
@@ -53,7 +54,7 @@ const addBook=async (req,res)=>{
         return res.status(400).json({message:'Book already exist'})
       }
       const imageUrl = req.file.path;
-    const newbook=await Book.create({name,author,publishYear,genre,image:imageUrl})
+    const newbook=await Book.create({name,author,publishYear,genre,image:imageUrl,price})
     console.log(newbook)
     return res.status(200).json({newbook})
     }

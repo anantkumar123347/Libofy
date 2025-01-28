@@ -1,13 +1,41 @@
-.mdiv
-{
-    height: 100vh;
-    width: 100%;
+/* Main container styling */
+.mdiv {
     display: flex;
-}
-.sidebar{
-    height: 100%;
-    width: 20%;
-    background-color: rgb(53, 53, 53);
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* Sidebar styling */
+  .sidebar {
+    position: fixed; /* Fixes the sidebar in place */
+    top: 0;
+    left: 0;
+    width: 250px; /* You can adjust the width */
+    height: 100%; /* Ensures it takes full height */
+    background-color: #333; /* Sidebar background color */
+    padding-top: 20px; /* Adjust as needed */
+    z-index: 1000; /* Ensures it's above other content */
+  }
+  
+  /* Main content styling */
+  .main-content {
+    margin-left: 250px; /* Adds space for the fixed sidebar */
+    padding: 20px;
+    overflow-y: auto; /* Ensures the main content is scrollable */
+  }
+  
+  /* Sidebar tile styling */
+  .sidetile {
+    display: flex;
     align-items: center;
-    justify-content: center;
-}
+    padding: 10px 20px;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .sidetile:hover {
+    background-color: #f39c12;
+  }
+  

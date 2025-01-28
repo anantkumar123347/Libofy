@@ -1,0 +1,113 @@
+/* Book Tile Styles */
+.booktile {
+  background-color: #000000;  /* Black background */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  color: white;  /* White text */
+  width: 100%;  /* Full width of the grid column */
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Ensure all tiles have consistent height */
+}
+
+/* Book Tile Hover Effect */
+.booktile:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Book Image Styles */
+.booktile-image {
+  width: 100%;  /* Ensure the image spans the entire width */
+  height: 200px;  /* Fixed height to maintain image visibility */
+  object-fit: contain;  /* Ensures the image is fully visible */
+  border-bottom: 2px solid #f39c12;  /* Orange border */
+}
+
+/* Book Content Styling */
+.booktile-content {
+  padding: 15px;
+  flex-grow: 1; /* Allow content to grow and take up remaining space */
+}
+
+/* Book Title */
+.booktile-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #fff;  /* White title */
+  white-space: nowrap;  /* Prevent title from wrapping */
+  overflow: hidden; /* Ensure no overflow */
+  text-overflow: ellipsis; /* Show ellipsis for overflowing text */
+  max-width: 100%;  /* Ensure it doesn’t go beyond the container */
+  height: 50px;  /* Set fixed height for title */
+}
+
+/* Author, Genre, Price Styling */
+.booktile-author,
+.booktile-genre,
+.booktile-price {
+  font-size: 1rem;
+  color: #ccc;  /* Light grey text */
+  margin: 5px 0;
+  height: 30px;  /* Consistent height for each detail section */
+}
+
+/* Add to Cart Button */
+.booktile-btn {
+  background-color: #f39c12;  /* Orange button */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+/* Button Hover Effect */
+.booktile-btn:hover {
+  background-color: #e67e22;  /* Darker orange on hover */
+}
+
+/* Author Styling */
+.booktile-author {
+  font-style: italic;
+}
+
+/* Genre Styling */
+.booktile-genre {
+  font-size: 0.9rem;
+}
+
+/* Price Styling */
+.booktile-price {
+  font-weight: bold;
+  color: #e67e22;  /* Price in orange */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .booktile-image {
+    height: 180px;  /* Reduced image height on smaller screens */
+  }
+
+  .booktile-title {
+    font-size: 1.2rem;  /* Adjust font size for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .booktile-image {
+    height: 150px;  /* Adjust image height on smaller devices */
+  }
+
+  .booktile-title {
+    font-size: 1rem;  /* Smaller font size for very small screens */
+  }
+}

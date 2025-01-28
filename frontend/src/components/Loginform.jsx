@@ -9,7 +9,7 @@ function Loginform() {
 
   async function logincall(e) {
     e.preventDefault();
-
+  
     try {
       const response = await fetch("http://localhost:5000/user/login/", {
         method: "POST",
@@ -18,19 +18,22 @@ function Loginform() {
         },
         body: JSON.stringify({ email, password }),
       });
-
+  
       const data = await response.json();
-
+  
       if (!response.ok) {
         throw new Error(data.message || "Login failed");
       }
-
+  
       console.log("Login successful:", data);
       alert("Login successful");
-
+  
+      // Store token and user info in localStorage
       localStorage.setItem('authToken', data.token);
-      console.log("Token stored:", data.token);
-
+      localStorage.setItem('userEmail', email); // Storing the email (or name) here
+  
+      console.log("Token and email stored:", data.token, email);
+  
       navigate("/home");
       console.log("Navigating to /home");
     } catch (error) {
@@ -38,6 +41,7 @@ function Loginform() {
       alert(error.message);
     }
   }
+  
   function moveToRegister()
   {
     navigate("/register")
