@@ -1,13 +1,13 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import "./HomeFooter.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookF, faTwitter, faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebookF, faTwitter, faInstagram, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 
 function Footer() {
   return (
     <footer className="footer">
       <div className="footer-content">
-        {/* About Section */}
         <div className="footer-section">
           <h3 className="footer-title">About Us</h3>
           <p className="footer-text">
@@ -16,26 +16,24 @@ function Footer() {
           </p>
         </div>
 
-        {/* Quick Links Section */}
         <div className="footer-section">
           <h3 className="footer-title">Quick Links</h3>
           <ul className="footer-links">
             <li>
-              <a href="#shop">Shop</a>
+              <NavLink to="/home" activeClassName="active-link">Shop</NavLink>
             </li>
             <li>
-              <a href="#about">About Us</a>
+              <NavLink to="/about" activeClassName="active-link">About Us</NavLink>
             </li>
             <li>
-              <a href="#contact">Contact Us</a>
+              <NavLink to="/contact" activeClassName="active-link">Contact Us</NavLink>
             </li>
             <li>
-              <a href="#faq">FAQs</a>
+              <NavLink to="/home" activeClassName="active-link">FAQs</NavLink>
             </li>
           </ul>
         </div>
 
-        {/* Social Media Section */}
         <div className="footer-section">
           <h3 className="footer-title">Follow Us</h3>
           <div className="social-icons">
@@ -45,21 +43,21 @@ function Footer() {
             <a href="#twitter" className="social-icon">
               <FontAwesomeIcon icon={faTwitter} />
             </a>
-            <a href="#instagram" className="social-icon">
+            <a href="https://www.instagram.com/anant.6765/profilecard/?igsh=MXFkcTA0ZDgzMW9iZg==" className="social-icon">
               <FontAwesomeIcon icon={faInstagram} />
             </a>
-            <a href="#linkedin" className="social-icon">
+            <a href="https://www.linkedin.com/in/anant-kumar-a0439028b" className="social-icon">
               <FontAwesomeIcon icon={faLinkedinIn} />
             </a>
           </div>
         </div>
       </div>
 
-      {/* Footer Bottom */}
       <div className="footer-bottom">
         <p>© 2025 Libofy BookPoint. All rights reserved.</p>
         <p>
-          <a href="#terms">Terms of Service</a> | <a href="#privacy">Privacy Policy</a>
+          <NavLink to="/terms" activeClassName="active-link">Terms of Service</NavLink> |  
+          <NavLink to="/privacy" activeClassName="active-link">Privacy Policy</NavLink>
         </p>
       </div>
     </footer>

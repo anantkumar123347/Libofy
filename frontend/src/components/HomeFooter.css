@@ -102,4 +102,9 @@
       text-align: center;
     }
   }
+  .footer-links .active-link {
+    font-weight: bold;
+    color: orange;
+    text-decoration: underline;
+  }
   

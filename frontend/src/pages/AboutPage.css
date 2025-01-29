@@ -1,0 +1,119 @@
+/* Global Styles */
+.about-container {
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    padding-bottom: 50px;
+  }
+  
+  /* Image Section */
+  .image-container {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    overflow: hidden;
+  }
+  
+  .about-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(90%);
+  }
+  
+  /* Wave Effect */
+  .image-container::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: black;
+    clip-path: ellipse(50% 100% at 50% 100%);
+  }
+  
+  /* Section Titles */
+  h2 {
+    font-size: 2.5rem;
+    color: #ff9800;  /* Orange color */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  
+  /* About Content (Reduced spacing) */
+  .about-content {
+    padding: 30px 20px;
+    max-width: 900px;
+    margin: auto;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-top: -30px; /* Pulls section closer to the image */
+  }
+  
+  /* Branches Section */
+  .branches {
+    padding: 50px 20px;
+  }
+  
+  .branches-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  
+  /* Branch Cards */
+  .branch {
+    background-color: #222;
+    padding: 25px;
+    border-radius: 12px;
+    width: 320px;
+    box-shadow: 0 5px 15px rgba(255, 152, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .branch:hover {
+    transform: scale(1.05);
+  }
+  
+  .branch h3 {
+    font-size: 1.8rem;
+    color: #ff9800;
+    margin-bottom: 10px;
+  }
+  
+  /* Commitment Section */
+  .commitment {
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: auto;
+    font-size: 1.2rem;
+    line-height: 1.8;
+  }
+  
+  .commitment h2 {
+    margin-bottom: 20px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .about-content, .commitment {
+      padding: 30px 15px;
+    }
+  
+    h2 {
+      font-size: 2rem;
+    }
+  
+    .branches-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .branch {
+      width: 90%;
+    }
+  }
+  

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Booktile from '../components/Booktile';
 import './Homepage.css'; 
+import image from '../assets/Rectangle 5 (1).jpg';
 
 function Homepage() {
   const [books, setBooks] = useState([]);
@@ -36,7 +37,10 @@ function Homepage() {
 
   return (
     <div className="homepage-container">
-      {/* Display all books by mapping over the books array */}
+      <div className="top-image-container">
+        <img src={image} alt="Top Banner" className="top-image" />
+        <div className="welcome-text">Welcome to Libofy</div>
+      </div>
       <div className="book-tiles">
         {books.map((book) => (
           <Booktile

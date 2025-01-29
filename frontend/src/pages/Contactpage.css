@@ -1,0 +1,65 @@
+body{
+    background-color: black;
+}
+.contact-container {
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    padding-bottom: 50px;
+}
+
+.contact-heading {
+    font-size: 2.5rem;
+    color: #ff9800;  /* Orange color */
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.branch-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* Branch Cards */
+.branch-card {
+    background-color: #222;
+    padding: 25px;
+    border-radius: 12px;
+    width: 320px;
+    box-shadow: 0 5px 15px rgba(255, 152, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+    cursor: pointer;
+}
+
+.branch-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(255, 152, 0, 0.5);
+}
+
+.branch-name {
+    font-size: 1.8rem;
+    color: #ff9800;
+    margin-bottom: 10px;
+}
+
+.branch-address,
+.branch-phone {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .branch-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .branch-card {
+        width: 90%;
+    }
+}
