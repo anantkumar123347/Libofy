@@ -55,4 +55,63 @@ const login=async (req,res)=>{
         return res.status(400).json({message:error.message})
     }
 }
-module.exports={addUser,login}
+const addToCart=async(req,res)=>{
+  try{
+    const {email,book_id}=req.body
+    const user=await User.findOne({email})
+    if(!user)
+    {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    user.cart.push(book_id)
+    await user.save();
+    console.log("Book added to cart successfully");
+    return res.status(200).json({message:'Book added to cart successfully' });
+  }
+  catch(error)
+  {
+    console.log(error.message)
+    return res.status(400).json({message:error.message})
+  }
+}
+const getCart=async(req,res)=>{
+  try{
+    const {email}=req.body
+    const user=await User.findOne({email})
+    if(!user)
+    {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    const cart=user.cart
+    return res.status(200).json({cart});
+  }
+  catch(error)
+  {
+    console.log(error.message)
+    return res.status(400).json({message:error.message})
+  }
+}
+const removeFromCart=async(req,res)=>{
+  try{
+    const {email,book_id}=req.body
+    const user=await User.findOne({email})
+    if(!user)
+    {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    const bookIndex = user.cart.indexOf(book_id);
+    if (bookIndex === -1) {
+      return res.status(400).json({ message: 'Book not found in cart' });
+    }
+    user.cart.splice(bookIndex, 1); 
+    await user.save(); 
+    console.log('Book removed from cart successfully');
+    return res.status(200).json({ message: 'Book removed from cart successfully' });
+  }
+  catch(error)
+  {
+    console.log(error.message)
+    return res.status(400).json({message:error.message})
+  }
+}
+module.exports={addUser,login,addToCart,getCart,removeFromCart}
