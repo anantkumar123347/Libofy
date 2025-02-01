@@ -74,44 +74,64 @@ const addToCart=async(req,res)=>{
     return res.status(400).json({message:error.message})
   }
 }
-const getCart=async(req,res)=>{
-  try{
-    const {email}=req.body
-    const user=await User.findOne({email})
-    if(!user)
-    {
-      return res.status(404).json({ message: 'User not found' });
+const getCart = async (req, res) => {
+  try {
+    const { email } = req.query; // Use query parameters instead of req.body
+
+    if (!email) {
+      return res.status(400).json({ message: "Email is required" });
     }
-    const cart=user.cart
-    return res.status(200).json({cart});
-  }
-  catch(error)
-  {
-    console.log(error.message)
-    return res.status(400).json({message:error.message})
-  }
-}
-const removeFromCart=async(req,res)=>{
-  try{
-    const {email,book_id}=req.body
-    const user=await User.findOne({email})
-    if(!user)
-    {
-      return res.status(404).json({ message: 'User not found' });
+
+    const user = await User.findOne({ email }).populate("cart");
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
     }
-    const bookIndex = user.cart.indexOf(book_id);
+
+    return res.status(200).json({ cart: user.cart });
+  } catch (error) {
+    console.error(error.message);
+    return res.status(500).json({ message: "Internal Server Error" });
+  }
+};
+
+const removeFromCart = async (req, res) => {
+  try {
+    const { email, bookId } = req.body;
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    const bookIndex = user.cart.indexOf(bookId.toString());
+    
     if (bookIndex === -1) {
-      return res.status(400).json({ message: 'Book not found in cart' });
+      return res.status(400).json({ message: "Book not found in cart" });
     }
-    user.cart.splice(bookIndex, 1); 
-    await user.save(); 
-    console.log('Book removed from cart successfully');
-    return res.status(200).json({ message: 'Book removed from cart successfully' });
+
+    user.cart.splice(bookIndex, 1);
+    await user.save();
+
+    return res.status(200).json({ message: "Book removed from cart successfully" });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
   }
-  catch(error)
-  {
-    console.log(error.message)
-    return res.status(400).json({message:error.message})
+};
+const emptyCart=async(req,res)=>{
+  try{
+    const {email}=req.body;
+    console.log(email)
+    const user=await User.findOne({ email });
+    if (!user) {
+      return res.status(400).json({ message: "User not found" });
+    }
+    user.cart = [];
+    await user.save();
+    return res.status(200).json({ message: "Cart emptied successfully" });
+  }
+  catch (error) {
+    return res.status(500).json({ message: error.message });
   }
 }
-module.exports={addUser,login,addToCart,getCart,removeFromCart}
+
+module.exports={addUser,login,addToCart,getCart,removeFromCart,emptyCart}

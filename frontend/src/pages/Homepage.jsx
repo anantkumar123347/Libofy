@@ -44,7 +44,8 @@ function Homepage() {
       <div className="book-tiles">
         {books.map((book) => (
           <Booktile
-            key={book._id}
+            key={book._id}  // Use the book's _id as the key
+            bookId={book._id}  // Pass the _id to Booktile as bookId prop
             image={book.image}
             title={book.name}
             author={book.author}

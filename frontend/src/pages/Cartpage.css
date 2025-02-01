@@ -1,0 +1,92 @@
+/* Cartpage.css */
+.cart-container {
+  background-color: black;
+  color: #f9a825;
+  padding: 20px;
+  max-width: 900px;
+  margin: 30px auto;
+  border-radius: 8px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2em;
+}
+
+.cart-table {
+  width: 100%;
+  margin: 20px 0;
+  border-collapse: collapse;
+  background-color: black;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.cart-table th,
+.cart-table td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #f9a825;
+}
+
+.cart-table th {
+  background-color: black;
+}
+
+.cart-book-image {
+  width: 50px;
+  height: 70px;
+  object-fit: cover;
+}
+
+.delete-button {
+  background-color: #f9a825;
+  color: black;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+  background-color: #e67e00;
+}
+
+.total-bill {
+  text-align: right;
+  font-size: 1.5em;
+  margin-top: 20px;
+}
+
+.payment-section {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.pay-button {
+  background-color: #f9a825;
+  color: black;
+  font-size: 1.2em;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pay-button:hover {
+  background-color: #e67e00;
+}
+
+.loading, .error {
+  text-align: center;
+  font-size: 1.2em;
+  color: #e67e00;
+}
+
+.cart-container p {
+  text-align: center;
+  font-size: 1.5em;
+}
+
