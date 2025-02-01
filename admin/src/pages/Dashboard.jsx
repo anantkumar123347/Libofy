@@ -1,7 +1,7 @@
 import React from "react";
 import "./Dashboard.css";
 import Sidetile from "../components/Sidetile";
-import { FaPlus, FaBook, FaSignOutAlt } from "react-icons/fa";
+import { FaPlus, FaBook, FaSignOutAlt,FaClipboardList } from "react-icons/fa";
 import { Outlet, useNavigate } from "react-router-dom";
 
 function Dashboard() {
@@ -18,6 +18,7 @@ function Dashboard() {
       <div className="sidebar">
         <Sidetile icon={<FaPlus />} label="Add a Book" onClick={() => navigate("addbook")} />
         <Sidetile icon={<FaBook />} label="All Books" onClick={() => navigate("allbooks")} />
+        <Sidetile icon={<FaClipboardList />} label="Orders" onClick={() => navigate("order")} />
         <Sidetile icon={<FaSignOutAlt />} label="Logout" onClick={handleLogout} />
       </div>
 

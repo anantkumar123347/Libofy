@@ -5,6 +5,7 @@ import Dashboard from "./pages/Dashboard";
 import Addbook from "./components/Addbook";
 import Allbooks from "./components/Allbooks";
 import PrivateRoute from "./components/PrivateRoute";
+import Order from "./components/Order";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             {/* Nested Routes */}
             <Route path="addbook" element={<Addbook />} />
             <Route path="allbooks" element={<Allbooks />} />
+            <Route path="order" element={<Order/>}/>
           </Route>
         </Route>
       </Routes>

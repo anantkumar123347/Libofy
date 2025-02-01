@@ -27,18 +27,23 @@ const addOrder = async (req, res) => {
 };
 const deleteOrder = async (req, res) => {
     try {
-        const { orderId } = req.params;
+        const { orderId } = req.body; 
+    
+        if (!orderId) {
+          return res.status(400).json({ message: 'orderId is required' });
+        }
+    
         const order = await Order.findById(orderId);
         if (!order) {
-            return res.status(404).json({ message: "Order not found" });
+          return res.status(404).json({ message: 'Order not found' });
         }
-
+    
         await Order.findByIdAndDelete(orderId);
-        return res.status(200).json({ message: "Order deleted successfully" });
-    } catch (error) {
+        return res.status(200).json({ message: 'Order deleted successfully' });
+      } catch (error) {
         console.error(error.message);
-        return res.status(500).json({ message: "Failed to delete order" });
-    }
+        return res.status(500).json({ message: 'Failed to delete order' });
+      }
 };
 
 module.exports = { allOrders, addOrder, deleteOrder };
