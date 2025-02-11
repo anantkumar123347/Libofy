@@ -32,7 +32,7 @@ function Addbook() {
     formData.append('price', price); // Add the price to the form data
 
     try {
-      const response = await fetch('http://localhost:5000/books/', {
+      const response = await fetch('https://libofybackendserver.onrender.com/books/', { // Updated URL
         method: 'POST',
         body: formData,
       });

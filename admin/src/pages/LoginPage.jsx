@@ -10,7 +10,7 @@ function LoginPage() {
   async function logincall(e) {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/admin/login/", {
+      const response = await fetch("https://libofybackendserver.onrender.com/admin/login/", {  // Updated URL
         method: "POST",
         headers: {
           "Content-Type": "application/json",

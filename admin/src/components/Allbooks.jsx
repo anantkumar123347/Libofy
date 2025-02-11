@@ -9,7 +9,7 @@ function Allbooks() {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const response = await fetch('http://localhost:5000/books/');
+        const response = await fetch('https://libofybackendserver.onrender.com/books/'); // Updated URL
         if (!response.ok) {
           throw new Error('Failed to fetch books');
         }
@@ -24,9 +24,10 @@ function Allbooks() {
 
     fetchBooks();
   }, []);
+
   const deleteBook = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/books/${id}`, {
+      const response = await fetch(`https://libofybackendserver.onrender.com/books/${id}`, { // Updated URL
         method: 'DELETE',
       });
 

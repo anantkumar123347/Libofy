@@ -9,7 +9,7 @@ function Order() {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await fetch('http://localhost:5000/order');
+        const response = await fetch('https://libofybackendserver.onrender.com/order'); // Updated URL
         if (!response.ok) {
           throw new Error('Failed to fetch orders');
         }
@@ -27,7 +27,7 @@ function Order() {
 
   const deleteOrder = async (orderId) => {
     try {
-      const response = await fetch('http://localhost:5000/order', {
+      const response = await fetch('https://libofybackendserver.onrender.com/order', { // Updated URL
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
