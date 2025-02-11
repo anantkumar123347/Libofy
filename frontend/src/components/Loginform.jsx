@@ -11,7 +11,7 @@ function Loginform() {
     e.preventDefault();
   
     try {
-      const response = await fetch("http://localhost:5000/user/login/", {
+      const response = await fetch("https://libofybackendserver.onrender.com/user/login/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -71,7 +71,7 @@ function Loginform() {
         <button type="submit">Login</button>
       </form>
       <div className='registersection'>
-      <p>Stll not registered??</p>
+      <p>Still not registered??</p>
       <button onClick={moveToRegister}>Register here now</button>
       </div>
     </div>

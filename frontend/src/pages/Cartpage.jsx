@@ -27,7 +27,7 @@ function Cartpage() {
           return;
         }
 
-        const response = await fetch(`http://localhost:5000/user/cart?email=${encodeURIComponent(email)}`);
+        const response = await fetch(`https://libofybackendserver.onrender.com/user/cart?email=${encodeURIComponent(email)}`);
         if (!response.ok) {
           throw new Error("Failed to fetch books from cart");
         }
@@ -52,7 +52,7 @@ function Cartpage() {
         return;
       }
 
-      const response = await fetch(`http://localhost:5000/user/cart?email=${encodeURIComponent(email)}`);
+      const response = await fetch(`https://libofybackendserver.onrender.com/user/cart?email=${encodeURIComponent(email)}`);
       if (!response.ok) {
         throw new Error("Failed to fetch books from cart");
       }
@@ -72,7 +72,7 @@ function Cartpage() {
         return;
       }
 
-      const response = await fetch("http://localhost:5000/user/cart", {
+      const response = await fetch("https://libofybackendserver.onrender.com/user/cart", {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, bookId }),

@@ -1,46 +1,48 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 function Registerfrom() {
-        const [name, setName] = useState("");
-        const [email, setEmail] = useState("");
-        const [plainpassword, setPassword] = useState("");
-        const navigate = useNavigate();
-      
-        async function Registercall(e) {
-          e.preventDefault();
-      
-          try {
-            const response = await fetch("http://localhost:5000/user/register/", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({ name,email, plainpassword }),
-            });
-      
-            const data = await response.json();
-      
-            if (!response.ok) {
-              throw new Error(data.message || "Register failed");
-            }
-      
-            console.log("Register successful:", data);
-            alert("Registered successfully");
-            navigate("/");
-          } catch (error) {
-            console.error("Error during Registering:", error.message);
-            alert(error.message);
-          }
-        }
-        function moveToLogin()
-        {
-            navigate("/")
-        }
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [plainpassword, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  async function Registercall(e) {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("https://libofybackendserver.onrender.com/user/register/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, plainpassword }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || "Register failed");
+      }
+
+      console.log("Register successful:", data);
+      alert("Registered successfully");
+      navigate("/");
+    } catch (error) {
+      console.error("Error during Registering:", error.message);
+      alert(error.message);
+    }
+  }
+
+  function moveToLogin() {
+    navigate("/");
+  }
+
   return (
     <div className="login">
       <form onSubmit={Registercall}>
         <div>
-        <label>Name:</label>
+          <label>Name:</label>
           <input
             type="text"
             placeholder="Enter your name"
@@ -67,11 +69,11 @@ function Registerfrom() {
         <button type="submit">Register</button>
       </form>
       <div className='registersection'>
-      <p>Already registered??</p>
-      <button onClick={moveToLogin}>Login now!</button>
+        <p>Already registered??</p>
+        <button onClick={moveToLogin}>Login now!</button>
       </div>
     </div>
-  )
+  );
 }
 
-export default Registerfrom
+export default Registerfrom;

@@ -38,7 +38,7 @@ const PaymentModal = ({
 
       console.log("Sending order data:", orderData); // Debug log
 
-      const response = await fetch("http://localhost:5000/order", {
+      const response = await fetch("https://libofybackendserver.onrender.com/order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(orderData),
@@ -53,7 +53,7 @@ const PaymentModal = ({
 
       // Empty the user cart
       console.log("Sending request with email:", userEmail);
-      const resp = await fetch("http://localhost:5000/user/cart/empty", {
+      const resp = await fetch("https://libofybackendserver.onrender.com/user/cart/empty", {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: userEmail }),

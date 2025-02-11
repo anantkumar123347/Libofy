@@ -12,7 +12,7 @@ function Booktile({ image, title, author, genre, year, price, bookId }) {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/user/cart', {
+      const response = await fetch('https://libofybackendserver.onrender.com/user/cart', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
