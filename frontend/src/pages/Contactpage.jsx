@@ -1,6 +1,6 @@
 import React from "react";
 import image from "../assets/Rectangle 53.png";
-import "./ContactPage.css";
+import "./Contactpage.css";
 
 function Contactpage() {
   const branches = [
